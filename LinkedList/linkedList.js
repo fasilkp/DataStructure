@@ -67,22 +67,66 @@ class LinkedList {
             prev.next = node;
             this.size++;
         }
-    }
+    } // O(n)
 
     set(value, index) {
         if (index < 0 || index > this.size) {
             console.log("Invalid index")
-            return
         }
-        if (index == 0) {
-            this.prepend(value)
-        } else {
+        else {
             let currrent = this.head;
             for (let i = 0; i < index ; i++) {
                 currrent = currrent.next;
             }
             currrent.value= value
         }
+    }// O(n)
+
+    delete(index) {
+        if (index < 0 || index > this.size) {
+            console.log("Invalid index")
+            return
+        }
+        if(index===0){
+            this.head=this.head.next
+        }
+        else {
+            let currrent = this.head;
+            for (let i = 0; i < index-2 ; i++) {
+                currrent = currrent.next;
+            }
+            currrent.next= currrent.next.next
+        }
+        this.size--;
+    } //O(n)
+
+    removeValue(value){
+        if(this.head.value===value){
+            this.head=this.head.next
+        }
+        else{
+            let currrent = this.head;
+            while(currrent.next){
+                if(currrent.next.value==value){
+                    currrent.next= currrent.next.next
+                    return
+                }
+                currrent=currrent.next
+            }
+        }
+    }
+
+    search(value){
+        let count=0;
+        let current=this.head
+        while(current.next){
+            if(current.value==value){
+                return count
+            }
+            current=current.next
+            count++;
+        }
+        return 'not found'
     }
 
 
@@ -100,9 +144,13 @@ linkedList.append(6)
 
 linkedList.insert(54, 1)
 linkedList.set(23, 1)
+linkedList.delete(23)
+
+linkedList.removeValue(6)
+
 
 
 
 linkedList.getELements()
-console.log(linkedList)
 
+console.log(linkedList.search(989))

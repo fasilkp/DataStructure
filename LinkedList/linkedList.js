@@ -21,7 +21,7 @@ class LinkedList {
         }
         this.head = node
         this.size++;
-    }
+    } // O(1)
 
 
     append(value) {
@@ -33,10 +33,10 @@ class LinkedList {
             while (currrent.next) {
                 currrent = currrent.next
             }
-            currrent.next=node;
+            currrent.next = node;
         }
         this.size++;
-    }
+    } // O(n)
 
 
     getELements() {
@@ -48,6 +48,25 @@ class LinkedList {
             console.log(currrent.value);
             currrent = currrent.next
         }
+    } // O(n)
+
+    insert(value, index) {
+        if (index < 0 || index > this.size) {
+            console.log("Invalid index")
+            return
+        }
+        if (index == 0) {
+            this.prepend(value)
+        } else {
+            const node = new Node(value);
+            let prev = this.head;
+            for (let i = 0; i < index - 1; i++) {
+                prev = prev.next;
+            }
+            node.next = prev.next;
+            prev.next = node;
+            this.size++;
+        }
     }
 
 
@@ -56,13 +75,14 @@ class LinkedList {
 
 
 const linkedList = new LinkedList()
-linkedList.prepend(5)
-linkedList.prepend(6)
-linkedList.prepend(7)
+linkedList.prepend(1)
+linkedList.prepend(2)
+linkedList.prepend(3)
+linkedList.append(4)
+linkedList.append(5)
+linkedList.append(6)
 
-linkedList.append(8)
-linkedList.prepend(10)
-linkedList.append(11)
+linkedList.insert(54, 1)
 
 
 

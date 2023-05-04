@@ -69,6 +69,22 @@ class LinkedList {
         }
     }
 
+    set(value, index) {
+        if (index < 0 || index > this.size) {
+            console.log("Invalid index")
+            return
+        }
+        if (index == 0) {
+            this.prepend(value)
+        } else {
+            let currrent = this.head;
+            for (let i = 0; i < index ; i++) {
+                currrent = currrent.next;
+            }
+            currrent.value= value
+        }
+    }
+
 
 }
 
@@ -83,8 +99,10 @@ linkedList.append(5)
 linkedList.append(6)
 
 linkedList.insert(54, 1)
+linkedList.set(23, 1)
 
 
 
 linkedList.getELements()
+console.log(linkedList)
 

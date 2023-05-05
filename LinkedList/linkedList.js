@@ -1,6 +1,7 @@
 class Node {
     constructor(value) {
         this.value = value
+        this.next=null
     }
 }
 
@@ -82,7 +83,7 @@ class LinkedList {
         }
     }// O(n)
 
-    delete(index) {
+    removeFrom(index) {
         if (index < 0 || index > this.size) {
             console.log("Invalid index")
             return
@@ -129,28 +130,44 @@ class LinkedList {
         return 'not found'
     }
 
-
+    reverse(){
+        let current= this.head;
+        let prev= null;
+        while(current){
+            let temp=current.next;
+            current.next=prev;
+            prev=current;
+            current=temp
+        }
+        this.head=prev;
+        
+    }
 }
 
-
-
 const linkedList = new LinkedList()
+
 linkedList.prepend(1)
 linkedList.prepend(2)
 linkedList.prepend(3)
 linkedList.append(4)
 linkedList.append(5)
 linkedList.append(6)
+linkedList.append(6)
 
-linkedList.insert(54, 1)
-linkedList.set(23, 1)
-linkedList.delete(23)
+// linkedList.insert(54, 1)
+// linkedList.set(23, 1)
+// linkedList.removeFrom(23)
 
-linkedList.removeValue(6)
+// linkedList.removeValue(6)
 
 
 
 
 linkedList.getELements()
 
-console.log(linkedList.search(989))
+linkedList.reverse()
+console.log("--------------------------")
+linkedList.getELements()
+
+
+// console.log(linkedList.search(989))

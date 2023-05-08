@@ -139,8 +139,7 @@ class LinkedList {
             prev=current;
             current=temp
         }
-        this.head=prev;
-        
+        this.head=prev;   
     }
 }
 

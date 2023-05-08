@@ -4,7 +4,6 @@ function binarySearch(arr, target, left=0, right){
     if(left>right){
         return -1
     }
-    
     if(arr[mid]===target){
         return mid;
     }
@@ -17,5 +16,5 @@ function binarySearch(arr, target, left=0, right){
 }
 
 console.log(
-    binarySearch([1,2,3,4,5,7,8,9], 1)
+    binarySearch([1,2,3,4,5,7,8,9], 9)
 )

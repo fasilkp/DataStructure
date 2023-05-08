@@ -170,3 +170,11 @@ linkedList.getELements()
 
 
 // console.log(linkedList.search(989))
+
+// let arr = [1,2,3,4,5,56,7]
+
+// for(let i=0; i<arr.length; i++){
+//     linkedList.append(arr[i])
+// }
+
+// linkedList.getELements()

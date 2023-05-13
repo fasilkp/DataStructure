@@ -31,7 +31,7 @@ class Stack{
         else{
             let value= this.top.data;
             this.top=this.top.next;
-            console.log(value)
+            console.log(value, "removed")
             this.size--;
             return value
         }
@@ -43,6 +43,20 @@ class Stack{
         else{
             console.log(this.top.data)
             return this.top.data
+        }
+    }
+    insert(pos, val){
+        if(pos>this.size || pos<0){
+            console.log("no position to insert")
+            return;
+        }
+        let values=[]
+        for(let i=0; i<pos; i++){
+            values.push(this.pop());
+        }
+        this.push(val);
+        for(let i=0; i<values.length; i++){
+            this.push(values[i]);
         }
     }
     print(){
@@ -68,6 +82,10 @@ stack.print()
 
 stack.pop()
 stack.pop()
+
+stack.print()
+
+stack.insert(4,76)
 
 stack.print()
 

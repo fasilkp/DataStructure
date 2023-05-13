@@ -29,7 +29,6 @@ class Queue {
     dequeue() {
         if (this.isEmpty()) {
             console.log("nothing to delete")
-            return;
         }
         else {
             let value = this.front.data;
@@ -49,6 +48,7 @@ class Queue {
         console.log(arr)
         return arr;
     }
+    
 }
 
 const q= new Queue();

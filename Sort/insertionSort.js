@@ -1,4 +1,3 @@
-
 function insertionSort(arr){
     for (let i = 1; i < arr.length; i++) {
         let key = arr[i];
@@ -9,9 +8,8 @@ function insertionSort(arr){
         }
         arr[j + 1] = key;
       }
-    
       return arr;
 }
 
 console.log
-(insertionSort([7,8,5,2,4,6,3,0]))
+(insertionSort([3,2,5,1,6,7,3,6,0]))

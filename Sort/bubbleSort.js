@@ -10,4 +10,4 @@ function bubbleSort(arr){
 }
 
 console.log
-(bubbleSort([4,1,6,2,8,3,6,0]))
+(bubbleSort([3,2,5,1,6,7,3,6,0]))

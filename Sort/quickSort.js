@@ -12,6 +12,7 @@ function quickSort(arr){
             left.push(arr[i])
         }
     }
+    
     return [...quickSort(left), pivot, ...quickSort(right)]
 }
 

@@ -55,11 +55,23 @@ class BST{
         }
         return false;
     }
-    inOrder(node){
+    preOrder(node=this.root){
+        if(!node) return;
+        console.log(node.value)
+        this.preOrder(node.left);
+        this.preOrder(node.right)
+    }
+    inOrder(node=this.root){
         if(!node) return;
         this.inOrder(node.left);
         console.log(node.value)
         this.inOrder(node.right)
+    }
+    postOrder(node=this.root){
+        if(!node) return;
+        this.postOrder(node.left);
+        this.postOrder(node.right);
+        console.log(node.value);
     }
 
 }
@@ -72,11 +84,12 @@ bst.insert(9)
 
 console.log(bst.search(7))
 console.log(bst.search(8))
-console.log(bst.search(10))
-console.log(bst.search(20))
-console.log(bst.search(70))
-console.log(bst.search(80))
 console.log(bst)
-bst.inOrder(bst.root)
+console.log('----------------------------')
+bst.inOrder()
+console.log('----------------------------')
+bst.postOrder()
+console.log('----------------------------')
+bst.preOrder()
 
 

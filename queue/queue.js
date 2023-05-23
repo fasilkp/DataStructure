@@ -61,3 +61,5 @@ q.enqueue(4)
 q.dequeue()
 
 q.print()
+
+export default Queue

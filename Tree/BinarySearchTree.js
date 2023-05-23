@@ -1,3 +1,4 @@
+
 class Node{
     constructor(value){
         this.value=value
@@ -73,23 +74,95 @@ class BST{
         this.postOrder(node.right);
         console.log(node.value);
     }
+    levelOrder(){
+        let queue=[]
+        if(!this.root) return;
+        queue.push(this.root)
+        while(queue.length){
+            let curr= queue.shift();
+            console.log(curr.value)
+            if(curr.left){
+                queue.push(curr.left)
+            }
+            if(curr.right){
+                queue.push(curr.right)
+            }
+        }
+    }
+    minNode(node=this.root){
+        let current=node;
+        if(!current) {
+            console.log("no values found"); 
+            return '';
+        }
+        while(current.left){
+            current=current.left;
+        }
+        console.log(current.value)
+        return current.value
+    }
+    maxNode(node=this.root){
+        if(!node.right){
+            console.log(node.value)
+            return node.value
+        }
+        return this.maxNode(node.right)
+    }
+    delete(value){
+        this.root= this.deleteNode(this.root, value)
+
+    }
+    deleteNode(root, value){
+        if(!root){
+            return root;
+        }
+        if(value < root.value){
+            root.left= this.deleteNode(root.left, value)
+        }
+        else if(value > root.value){
+            root.right= this.deleteNode(root.right, value)
+        }
+        else{
+            if(!root.left && !root.right){
+                return null
+            }
+            if(!root.left){
+                return root.right
+            }else if(!root.right){
+                return root.left
+            }
+            root.value=this.minNode(root.right)
+            root.right = this.deleteNode(root.right, root.value)
+        }
+        return root;
+    }
 
 }
 
 const bst= new BST()
+
 bst.insert(10)
 bst.insert(20)
 bst.insert(7)
 bst.insert(9)
-
+console.log('----------------------------')
 console.log(bst.search(7))
 console.log(bst.search(8))
 console.log(bst)
-console.log('----------------------------')
+console.log('----in order------------------------')
+bst.inOrder()
+console.log('----post order------------------------')
+bst.postOrder()
+console.log('----pre order------------------------')
+bst.preOrder()
+console.log('----level order------------------------')
+bst.levelOrder()
+console.log('----min and max node------------------------')
+bst.minNode()
+bst.maxNode()
+console.log('----delete  ------------------------')
+bst.delete(10)
 bst.inOrder()
 console.log('----------------------------')
-bst.postOrder()
-console.log('----------------------------')
-bst.preOrder()
 
 

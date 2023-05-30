@@ -8,6 +8,7 @@ class Trie{
   constructor(){
       this.root=new TrieNode();
   }
+  
   insert(word){
       let current= this.root;
       for(let i=0; i<word.length; i++){
@@ -19,6 +20,7 @@ class Trie{
       }
       current.isEndOfWord=true;
   }
+
   search(word){
     let current= this.root;
     for(let i=0; i<word.length; i++){
@@ -30,6 +32,7 @@ class Trie{
     }
     return current.isEndOfWord
   }
+
   startsWith(preffix){
     let current=this.root;
     for(let i=0; i<preffix.length; i++){
